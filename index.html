@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)http://ehall.fzu.edu.cn/qljapp/sys/lwWiseduElectronicPass/mobIndex.do?campus=8 -->
+<html lang="zh-CN"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>福州大学电子通行码</title>
+    <!-- <link type="text/css" rel="stylesheet" href="./福州大学电子通行码_files/app.css"> 
+    <link type="text/css" rel="stylesheet" href="./福州大学电子通行码_files/style.css"> 
+    <script src="./福州大学电子通行码_files/jquery-1.11.1.min.js.download"></script>
+    <script src="./福州大学电子通行码_files/jquery.qrcode.js.download"></script>
+    <script src="./福州大学电子通行码_files/utf.js.download"></script> -->
+    <style>
+body {
+    background:rgba(245,248,253,1);
+}
+.health-index{
+    padding: 16px;
+}
+.health-head {
+    background:linear-gradient(146deg,rgba(45,116,253,1) 0%,rgba(60,160,253,1) 100%);
+    box-shadow:0px 12px 16px 0px rgba(196,201,217,0.4);
+    border-radius:4px;
+    color: #fff;
+    padding: 16px;
+}
+.health-head-left,.health-head-right {
+    display: inline-block;
+    vertical-align: top;
+}
+.health-head-left {
+    width:calc(100% - 112px);
+}
+.health-head-left>div>img {
+    position: relative;
+    top: 2px;
+    margin-right: 4px;
+}
+.health-head-right {
+    width: 98px;
+}
+.health-head-right>img {
+    position: relative;
+    top: 5px;
+}
+.health-body{
+    margin-top: 16px;
+    padding: 16px 0;
+    text-align: center;
+    background:#fff;
+    box-shadow:0px 12px 16px 0px rgba(140,157,210,0.4);
+    border-radius:4px;
+}
+.health-body-date{
+    color:#151312;
+    font-size:30px;
+    line-height: 40px;
+    display:inline-block;
+}
+.health-body-time{
+    display:inline-block;
+}
+.health-body-time>div{
+    display: inline-block;
+    width:109px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 30px;
+    margin: 12px 0;
+    border-radius:16px;
+    border:1px solid rgba(233,234,236,1);
+    
+}
+.passTimeSecond{
+    font-size:50px;
+    font-weight:bold;
+    color:red;
+    display: inline-block;
+    border:none !important;
+    font-size: 45px !important;
+    width:70px !important;
+}
+.health-body-code>div{
+    width:200px;
+    height:200px;
+    margin: 0 auto;
+}
+.health-body-des{
+    padding-top: 13px;
+    position: relative;
+}
+.health-body-des-font {
+    width:288px;
+    /*height:68px;*/
+    font-size:12px;
+    font-/*family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;*/
+    color:#767B8D;
+    line-height:17px;
+    padding-left: 16px;
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
+}
+.health-body-des-font > img {
+    position: absolute;
+    left: 0;
+}
+.health-foot {
+    padding-top: 24px;
+}
+.health-foot>label{
+    font-size:12px;
+    width: 48px;
+    display: inline-block;
+    vertical-align: top;
+    color:rgba(196,201,217,1);
+    position: relative;
+    top: -8px;
+}
+.health-foot>span{
+    height:1px;
+    display: inline-block;
+    vertical-align: top;
+    /*background-color: #C4C9D9;*/
+    border-top: solid 1px #C4C9D9;
+    width: calc((100% - 48px)/2 - 10px);
+}
+</style></head>
+<script>
+var myVar2 = setInterval(function(){ getMonthAndDay() }, 1000);
+var myVar1 = setInterval(function(){ getNowFormatDate() }, 1000);
+function getNowFormatDate() {//获取当前时间
+	var date = new Date();
+	var seperator1 = "-";
+	var seperator2 = ":";
+	var month = date.getMonth() + 1<10? "0"+(date.getMonth() + 1):date.getMonth() + 1;
+	var strDate = date.getDate()<10? "0" + date.getDate():date.getDate();
+	var hour = date.getHours()<10?"0" + date.getHours():date.getHours();
+	var minute = date.getMinutes()<10?"0" + date.getMinutes():date.getMinutes();
+	var second = date.getSeconds()<10?"0" + date.getSeconds():date.getSeconds();
+    var HourAndMinute = hour + seperator2 + minute;
+	//var currentdate = date.getFullYear() + seperator1  + month  + seperator1  + strDate
+	var currentdate = month  + seperator1  + strDate
+			+ " "  + hour  + seperator2  + minute  + seperator2 + second
+			;
+	//return currentdate;
+    document.getElementById("second").innerHTML = second;
+    document.getElementById("HourAndMinute").innerHTML = HourAndMinute;
+}
+function getMonthAndDay() {//获取当前时间
+	var date = new Date();
+	var month = date.getMonth() + 1;
+	var strDate = date.getDate();
+	var currentdate = month  + "月" + strDate +"日";
+	//return currentdate;
+    document.getElementById("demo2").innerHTML = currentdate;
+}
+</script>
+<body style="background-color:white;">
+    <div class="passApp">
+		<div class="passInfo" style="margin-top: 0%; text-align: initial; display: block;">
+			<!-- <div>
+			    <div>
+			      <div>
+   			        <img src="public/images/fzuLogo.png" width="120" height="120"/>
+   			        <div class="campusName" style="font-size: 18px;font-weight: bold;margin-top:10px;"></div>
+			        <div style="font-size: 18px;font-weight: bold;margin-top:10px;" class="passTitle">教职工电子通行码</div><br/>
+			        <div style="font-size: 18px;"><span class="userName" style="font-weight: bold;font-size:18px;"></span><span class="sexName" style="font-size:16px;"></span></div>
+			        <div class="deptName" style="font-size: 16px;margin-top:10px;"></div><br/>
+			        <div style="margin-top:10px;">
+			          <span class="passTimeMonth" style="font-size:20px;font-weight: bold;color:red;"></span>&nbsp;&nbsp;
+			          <span class="passTime"></span>
+			        </div>
+			      </div>
+			    </div>
+			    <div id="qrCode" style="margin-top:15px;"></div>
+			</div> -->
+			<div class="health-index">
+            <div class="health-head">
+                <div class="health-head-left">
+                    <div style="font-size:22px;" class="campusName">旗山校区</div>
+                    <div style="font-size:16px;padding:6px 0 0 0;" class="passTitle">学生电子通行码</div>
+                    <div style="font-size:18px;padding:16px 0 8px 0;width:900px;"><img src="user.png"><span class="userName" style="font-weight:normal;font-size:18px;" >鲍冰婷</span></div>
+                    <div style="font-size:16px;"><img src="position.png"><span class="deptName">研2020级材料四班</span></div>
+                </div>
+                <div class="health-head-right">
+                    <img src="logo.png" width="120">
+                </div>
+            </div>
+            <div class="health-body">
+                <div class="health-body-date passTimeMonth" id="demo2"></div>
+                <div class="health-body-time"><div class="passTimeSecond" id="second"></div><div class="passTime" id="HourAndMinute"></div></div>
+                <div class="health-body-code">
+                    <div id="qrCode" style="margin-top:10px;margin-bottom:20px;"><img src="green.png" /><canvas width="200" height="200"></canvas></div>
+                </div>
+                <div class="plate" style="margin-top: -10px;"></div>
+                <div class="endTime"></div>
+                <div class="health-body-des">
+                    <div class="health-body-des-font"><img src="tips.png" width="17" style="margin-left:-2px;"><span class="codeMsg" style="font-size:14px;">绿码：允许通行，请主动出示，配合核验，并做好自身防护，出行前请确认。</span><br><br></div>
+                </div>
+            </div>
+            <div class="health-foot">
+                <span></span>
+                <label>福州大学</label>
+                <span></span>
+            </div>  
+            </div>
+		</div>
+		<!-- <div class="errorInfo">
+            <img class="errorImg" src="./福州大学电子通行码_files/warning.png">
+            <p class="errorCampus" style="color:#3296FA;font-size:24px;"></p>
+            <p class="errorMsg" style="font-size:26px;">无该区域通行权限</p>
+            <p class="errorStartTime" style="font-size:16px;color:red;"></p>
+            <p class="errorEndTime" style="font-size:16px;color:red;"></p>
+        </div> -->
+    </div>
+
+</body></html>
